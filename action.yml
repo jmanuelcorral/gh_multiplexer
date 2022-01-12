@@ -1,0 +1,16 @@
+name: 'FileContent to Matrix'
+description: 'Given a filename, reads the contents and transform every line in a array element'
+inputs:
+  file:  # file to analize
+    description: 'the file that will be readed'
+    required: true
+    default: 'test.kk'
+outputs:
+  list: # the list of components
+    description: 'The list of elements'
+runs:
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/test/script.sh ${{ inputs.file }}
+      shell: bash
+    
